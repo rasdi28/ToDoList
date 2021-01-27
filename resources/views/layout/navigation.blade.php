@@ -21,6 +21,10 @@
           <li class="nav-item{{ request()->is('posts') ? ' active' : '' }}">
             <a class="nav-link" href="/posts">Posts</a>
           </li>
+
+          <li class="nav-item {{ request()->is('users/show') ?'active':'' }}">
+            <a href="/users" class="nav-link">User</a>
+          </li>
           
       </div>
     </div>

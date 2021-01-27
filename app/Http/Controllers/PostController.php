@@ -27,11 +27,8 @@ class PostController extends Controller
     public function store()
     {
         //validate the field
-        $attr = request()->validate([
-            'title'=>'required|min:3',
-            'body'=>'required',
-
-        ]);
+        $attr = $this->validateRequest();
+        
         // assign title to the slug
 
         $attr['slug'] = \Str::slug(request('title'));
@@ -54,11 +51,7 @@ class PostController extends Controller
     public function update(Post $post)
     {
         
-        $attr = request()->validate([
-            'title'=>'required|min:3',
-            'body'=>'required',
-
-        ]);
+       $attr = $this->validateRequest();
 
         $post->update($attr);
         session()->flash('success','The Post Was Updated');
@@ -69,4 +62,23 @@ class PostController extends Controller
 
     
     }
+
+    public function validateRequest()
+    {
+        return request()->validate([
+            'title'=>'required|min:3',
+            'body'=>'required',
+
+        ]);
+    }
+
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        session()->flash("success", "The Pos Was Delete");
+        return redirect('posts');
+
+    }
+
 }
