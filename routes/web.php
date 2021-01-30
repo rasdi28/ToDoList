@@ -13,7 +13,7 @@ ROute::post('posts/store','PostController@store');
 
 Route::get('posts/{post:slug}/edit','PostController@edit');
 Route::patch('posts/{post:slug}/edit','PostController@update');
-
+ 
 Route::delete('posts/{post:slug}/delete','PostController@destroy');
 
 
@@ -24,6 +24,10 @@ Route::get('users/{slug}','UserController@show');
 //put -> keseluruhan
 //patch -> parsial
 
+//EduLevel
+Route::get('edulevels','EdulevelController@data');
+
+//
 
 Route::view('contact','contact');
 Route::view('about','about');

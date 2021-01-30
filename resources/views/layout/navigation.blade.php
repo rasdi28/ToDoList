@@ -25,6 +25,9 @@
           <li class="nav-item {{ request()->is('users/show') ?'active':'' }}">
             <a href="/users" class="nav-link">User</a>
           </li>
+          <li class="nav-item {{ request()->is('edulevel/data') ?'active':'' }}">
+            <a href="/edulevels" class="nav-link">Edulevel</a>
+          </li>
           
       </div>
     </div>
