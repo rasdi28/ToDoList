@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -19,11 +18,13 @@ class PostController extends Controller
     {
         return view('posts.show',compact('post'));
     }
-    
+
     public function create()
     {
         return view('posts.create');
     }
+    
+   
 
     public function store()
     {
@@ -81,5 +82,6 @@ class PostController extends Controller
         return redirect('posts');
 
     }
+
 
 }

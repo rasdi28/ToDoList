@@ -6,7 +6,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item{{ request()->is('/') ? ' active' : '' }}">
+          <li class="nav-item{{ request()->is('home') ? ' active' : '' }}">
             <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
           </li>
           <li class="nav-item{{ request()->is('contact') ? ' active' : '' }}">
@@ -15,18 +15,8 @@
           <li class="nav-item{{ request()->is('about') ? ' active' : '' }}">
             <a class="nav-link " href="/about">About</a>
           </li>
-          <li class="nav-item{{ request()->is('login') ? ' active' : '' }}">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
           <li class="nav-item{{ request()->is('posts') ? ' active' : '' }}">
             <a class="nav-link" href="/posts">Posts</a>
-          </li>
-
-          <li class="nav-item {{ request()->is('users/show') ?'active':'' }}">
-            <a href="/users" class="nav-link">User</a>
-          </li>
-          <li class="nav-item {{ request()->is('edulevel/data') ?'active':'' }}">
-            <a href="/edulevels" class="nav-link">Edulevel</a>
           </li>
           
       </div>

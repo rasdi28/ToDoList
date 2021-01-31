@@ -11,7 +11,7 @@
            <form action="/posts/{{ $post->slug }}/delete" method="post">
             @csrf
             @method("delete")
-            <button class="btn btn-link text-danger btn-sm p-0" type="submit">Delete</button>
+            <button class="btn btn-sm btn-danger" type="submit">Delete</button>
 
         </form>
         </div>
