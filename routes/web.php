@@ -32,3 +32,6 @@ Route::delete('posts/{post:slug}/delete','PostController@destroy');
 Route::view('contact','contact');
 Route::view('about','about');
 ROute::view('login','login');
+Route::get('/belajar/{page}', function($page){
+    return "hello , ini adalah halaman belajar route".$page;
+});
