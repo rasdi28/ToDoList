@@ -3,18 +3,24 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+Route::get('posts','PostController@index')->name('posts.index');
 
-Route::get('posts','PostController@index');
-ROute::get('posts/create','PostController@create');
+
+Route::prefix('posts')->middleware('auth')->group(function(){
+    ROute::get('create','PostController@create')->name('posts.create');
+
+    ROute::post('store','PostController@store');
+
+    Route::get('{post:slug}/edit','PostController@edit');
+    Route::patch('{post:slug}/edit','PostController@update');
+    Route::delete('{post:slug}/delete','PostController@destroy');
+
+
+});
 
 Route::get('posts/{post:slug}','PostController@show');
-ROute::post('posts/store','PostController@store');
 
-Route::get('posts/{post:slug}/edit','PostController@edit');
-Route::patch('posts/{post:slug}/edit','PostController@update');
-Route::delete('posts/{post:slug}/delete','PostController@destroy');
-
-
+Route::get('categories/{category:slug}','CategoryController@show');
 
 // //Percobaan
 // Route::get('users','UserController@index');

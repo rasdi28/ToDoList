@@ -11,7 +11,7 @@
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav mr-auto">
 
-            <li><a href="/posts">Posts</a></li>
+            <li><a href="{{ route('posts.index') }}">Posts</a></li>
 
           </ul>
 
