@@ -1,4 +1,4 @@
-@extends('layout.master',['title'=>'New Post'])
+@extends('layouts.app',['title'=>'New Post'])
 
 @section('content')
 

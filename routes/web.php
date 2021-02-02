@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
-Route::get('/','HomeController');
 
 Route::get('posts','PostController@index');
 ROute::get('posts/create','PostController@create');
@@ -35,3 +34,6 @@ ROute::view('login','login');
 Route::get('/belajar/{page}', function($page){
     return "hello , ini adalah halaman belajar route".$page;
 });
+Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('home');
