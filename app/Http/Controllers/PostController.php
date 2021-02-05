@@ -77,6 +77,8 @@ class PostController extends Controller
         return request()->validate([
             'title'=>'required|min:3',
             'body'=>'required',
+            
+           
 
         ]);
     }
