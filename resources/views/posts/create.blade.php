@@ -39,11 +39,10 @@
                         @enderror
                     
                     </div>
-
                     <div class="form-group">
-                        <label for="image">Add Image</label>
-                        <input type="file" name="imagez" id="image" class="form-control-file" value="{{ old('image') }}">
-                        @error('title')
+                        <label for="created">Created By</label>
+                        <input type="text" id="created" class="form-control" value="{{ old('created') }}">
+                        @error('created')
                             <div class="text-danger mt-2">
 
                                 {{ $message }}
@@ -51,7 +50,10 @@
                             </div>
                         
                         @enderror
+                        
                     </div>
+                   
+                    
                     <button type="submit" class="btn btn-primary">Create</button>
 
                 </form>

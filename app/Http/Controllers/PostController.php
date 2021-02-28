@@ -86,12 +86,13 @@ class PostController extends Controller
     
     }
 
-    // public function validateRequest()
-    // {
-    //     return request()->validate([
-    //         'title'=>'required|min:3',
-    //         'body'=>'required',
-    //         'image'=>'required',
+    public function validateRequest()
+    {
+        return request()->validate([
+            'title'=>'required|min:3',
+            'body'=>'required',
+            
+           
 
     //     ]);
     // }
