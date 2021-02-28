@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -33,23 +34,36 @@ class PostController extends Controller
     
    
 
-    public function store()
+    public function store(Request $request)
     {
+        $title = $request->title;
+        $body = $request->body;
+        $image = 'storage/'.$request->file('imagez')->store(
+                 'assets/blog', 'public'
+            );
+        $attr['slug'] = \Str::slug(request('title'));
+        echo $attr['slug'];
+        echo $image;
         //validate the field
-        $attr = $this->validateRequest();
+        // $attr = $this->validateRequest();
+
+        
         
         // assign title to the slug
-
-        $attr['slug'] = \Str::slug(request('title'));
+        $attr = $request->all();
+        // $attr['slug'] = Str::slug(request('title'));
         
+        // $attr['image'] = 'storage/'.$request->file('image')->store(
+        //     'assets/blog', 'public'
+        // );
         // create a new post
-
-        Post::create($attr);
-        session()->flash('success','The Post Was Created');
+        // echo $attr;
+        // Post::create($attr);
+        // session()->flash('success','The Post Was Created');
         // session()->flash('error','The Post Errroer');
         
-        
-        return redirect('posts');
+        // return redirect()->route('posts.index');
+
     }
 
     public function edit(Post $post)
@@ -72,14 +86,15 @@ class PostController extends Controller
     
     }
 
-    public function validateRequest()
-    {
-        return request()->validate([
-            'title'=>'required|min:3',
-            'body'=>'required',
+    // public function validateRequest()
+    // {
+    //     return request()->validate([
+    //         'title'=>'required|min:3',
+    //         'body'=>'required',
+    //         'image'=>'required',
 
-        ]);
-    }
+    //     ]);
+    // }
 
 
     public function destroy(Post $post)

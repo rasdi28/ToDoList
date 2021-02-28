@@ -10,7 +10,7 @@
             <div class="card">
                 <div class="card-header">New Post</div>
                 <div class="card-body"></div>
-                <form action="/posts/store" method="post">
+                <form action="{{ route('posts.store') }}" enctype="multipart/form-data" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="title">Title</label>
@@ -27,7 +27,7 @@
                         
                     </div>
                     <div class="form-group">
-                        <label for="body">Body</label>
+                        <label for="body">Deskripsi</label>
                         <textarea name="body" id="body" class="form-control">{{ old('body') }} </textarea>
                         @error('body')
                         <div class="text-danger mt-2">
@@ -38,6 +38,19 @@
                     
                         @enderror
                     
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Add Image</label>
+                        <input type="file" name="imagez" id="image" class="form-control-file" value="{{ old('image') }}">
+                        @error('title')
+                            <div class="text-danger mt-2">
+
+                                {{ $message }}
+
+                            </div>
+                        
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Create</button>
 

@@ -15,6 +15,7 @@ class AddCategoryIdToPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table->foreignId('category_id')->nullable()->after('id');
+            $table->string('image')->after('body');
         });
     }
 

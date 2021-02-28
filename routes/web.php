@@ -3,13 +3,21 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+
+Route::prefix('admin')->group(function(){
+    Route::prefix('dashboard')->group(function(){
+        Route::get('/','dashboardController@index')->name('dashboard.index');
+    });
+
+});
+
 Route::get('posts','PostController@index')->name('posts.index');
 
 
 Route::prefix('posts')->middleware('auth')->group(function(){
     ROute::get('create','PostController@create')->name('posts.create');
 
-    ROute::post('store','PostController@store');
+    ROute::post('store','PostController@store')->name('posts.store');
 
     Route::get('{post:slug}/edit','PostController@edit');
     Route::patch('{post:slug}/edit','PostController@update');
@@ -18,21 +26,8 @@ Route::prefix('posts')->middleware('auth')->group(function(){
 
 });
 
-Route::get('posts/{post:slug}','PostController@show');
+Route::get('posts/{post:slug}','PostController@show')->name('posts.show');
 
-Route::get('categories/{category:slug}','CategoryController@show');
-
-// //Percobaan
-// Route::get('users','UserController@index');
-// Route::get('users/{slug}','UserController@show');
-// //
-// //put -> keseluruhan
-// //patch -> parsial
-
-// //EduLevel
-// Route::get('edulevels','EdulevelController@data');
-
-// //
 
 Route::view('contact','contact');
 Route::view('about','about');
