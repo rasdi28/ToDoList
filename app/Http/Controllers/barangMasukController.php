@@ -23,7 +23,7 @@ class barangMasukController extends Controller
      */
     public function create()
     {
-        //
+        return view ('pages.admin.barangmasuk.create');
     }
 
     /**

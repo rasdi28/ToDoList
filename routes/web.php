@@ -4,12 +4,14 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
 
+
 Route::prefix('admin')->group(function(){
     Route::prefix('dashboard')->group(function(){
         Route::get('/','dashboardController@index')->name('dashboard.index');
     });
     Route::prefix('barangmasuk')->group(function(){
-        Route::get('/','barangmasukController@index')->name('barangmasuk.index');
+        Route::get('/','barangMasukController@index')->name('barangmasuk.index');
+        Route::get('/create','barangMasukController@create')->name('barangmasuk.create');
     });
 
 });
