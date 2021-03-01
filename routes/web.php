@@ -8,6 +8,9 @@ Route::prefix('admin')->group(function(){
     Route::prefix('dashboard')->group(function(){
         Route::get('/','dashboardController@index')->name('dashboard.index');
     });
+    Route::prefix('barangmasuk')->group(function(){
+        Route::get('/','barangmasukController@index')->name('barangmasuk.index');
+    });
 
 });
 
