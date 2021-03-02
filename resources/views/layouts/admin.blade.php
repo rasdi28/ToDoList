@@ -70,6 +70,10 @@
 
     @include('includes.admin.script')
 
+    @stack('after-script')
+
+    @stack('after-script')
+
 </body>
 
 </html>

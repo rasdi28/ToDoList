@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BarangMasuk;
 use Illuminate\Http\Request;
 
 class barangMasukController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,10 @@ class barangMasukController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.barangmasuk.index');
+        $items = BarangMasuk::all();
+        return view('pages.admin.barangmasuk.index')->with([
+            'items'=>$items
+        ]);
     }
 
     /**
@@ -34,7 +42,12 @@ class barangMasukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $barangmasuk = $request->all();
+        $barangmasuk['image'] = 'storage/'.$request->file('image')->store(
+            'assets/barangmasuk','public'
+        );
+        BarangMasuk::create($barangmasuk);
+        return redirect()->route('barangmasuk.index');
     }
 
     /**
@@ -45,7 +58,10 @@ class barangMasukController extends Controller
      */
     public function show($id)
     {
-        //
+        $item = BarangMasuk::findOrFail($id);
+        return view('pages.admin.barangmasuk.show')->with([
+            'item'=>$item
+        ]);
     }
 
     /**
@@ -56,7 +72,10 @@ class barangMasukController extends Controller
      */
     public function edit($id)
     {
-        //
+        $item = BarangMasuk::findOrFail($id);
+        return view('pages.admin.barangmasuk.edit')->with([
+            'item'=>$item
+        ]);
     }
 
     /**
@@ -68,7 +87,14 @@ class barangMasukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $new_items = $request->all();
+        $new_items['image']= 'storage/'.$request->file('image')->store(
+            'assets/barangmasuk','public'
+        );
+        $items = BarangMasuk::findOrFail($id);
+        $items->update($new_items);
+        return redirect()->route('barangmasuk.index',$items->id);
+
     }
 
     /**
@@ -79,6 +105,8 @@ class barangMasukController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = BarangMasuk::findOrFail($id);
+        $item->delete();
+        return redirect()->route('barangmasuk.index');
     }
 }

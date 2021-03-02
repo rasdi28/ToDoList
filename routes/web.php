@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\barangMasukController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,11 @@ Route::prefix('admin')->group(function(){
     Route::prefix('barangmasuk')->group(function(){
         Route::get('/','barangMasukController@index')->name('barangmasuk.index');
         Route::get('/create','barangMasukController@create')->name('barangmasuk.create');
+        Route::post('/','barangMasukController@store')->name('barangmasuk.store');
+        Route::get('/show/{id}','barangMasukController@show')->name('barangmasuk.show');
+        Route::get('/edit/{id}','barangMasukController@edit')->name('barangmasuk.edit');
+        Route::put('/update/{id}','barangMasukController@update')->name('barangmasuk.update');
+        Route::delete('delete/{id}','barangMasukController@destroy')->name('barangmasuk.destroy');
     });
 
 });
