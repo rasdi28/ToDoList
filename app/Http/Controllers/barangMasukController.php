@@ -34,7 +34,7 @@ class barangMasukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /
     }
 
     /**
