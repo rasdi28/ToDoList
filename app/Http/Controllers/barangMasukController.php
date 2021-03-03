@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BarangMasuk;
 use Illuminate\Http\Request;
+use PDF;
 
 class barangMasukController extends Controller
 {
@@ -22,6 +23,21 @@ class barangMasukController extends Controller
         return view('pages.admin.barangmasuk.index')->with([
             'items'=>$items
         ]);
+    }
+
+    public function cetakkartu()
+    {
+        $items = BarangMasuk::all();
+        return view('pages.admin.barangmasuk.cetakkartu',compact('items'));
+    }   
+
+
+    public function print()
+    {
+      $items = BarangMasuk::all();
+      $pdf = PDF::loadview('pages.admin.barangmasuk.cetakkartu')=>setPaper('A4','potrait');
+      return $pdf->stream();
+
     }
 
     /**

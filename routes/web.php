@@ -18,6 +18,9 @@ Route::prefix('admin')->group(function(){
         Route::get('/edit/{id}','barangMasukController@edit')->name('barangmasuk.edit');
         Route::put('/update/{id}','barangMasukController@update')->name('barangmasuk.update');
         Route::delete('delete/{id}','barangMasukController@destroy')->name('barangmasuk.destroy');
+        Route::get('/cetakkartu','barangMasukController@cetakkartu')->name('barangmasuk.cetakkartu');
+        Route::get('/print','barangMasukController@print')->name('barangmasuk.print');
+
     });
 
 });
