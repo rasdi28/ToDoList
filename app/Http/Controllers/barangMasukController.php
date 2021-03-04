@@ -20,9 +20,24 @@ class barangMasukController extends Controller
     public function index()
     {
         $items = BarangMasuk::all();
+       
         return view('pages.admin.barangmasuk.index')->with([
             'items'=>$items
         ]);
+    }
+
+    public function cetakkartu()
+    {
+        $items = BarangMasuk::all();
+        return view('pages.admin.barangmasuk.cetakkartu',compact('items'));
+    }   
+
+
+    public function print()
+    {
+      $items = BarangMasuk::all();
+      $pdf = PDF::loadview('pages.admin.barangmasuk.cetakPDF',$items);
+      return $pdf->download('cetakkartu.pdf');
     }
 
     /**

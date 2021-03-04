@@ -8,5 +8,10 @@ class Category extends Model
 {
     protected $fillable = [
         'name'
-    ]
+    ];
+
+    public function stock()
+    {
+        return $this->hasMany(Stock::class);
+    }
 }
