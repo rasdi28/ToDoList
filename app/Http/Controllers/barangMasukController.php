@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BarangMasuk;
 use Illuminate\Http\Request;
+use PDF;
 
 class barangMasukController extends Controller
 {
@@ -76,6 +77,14 @@ class barangMasukController extends Controller
         return view('pages.admin.barangmasuk.edit')->with([
             'item'=>$item
         ]);
+    }
+
+    // Print 
+    public function pdf()
+    {
+        $item = BarangMasuk::all();
+        $pdf = PDF::loadview('pages.admin.barangmasuk.myPDF',['item'=>$item]);
+        return $pdf->download('mypdf.pdf');
     }
 
     /**

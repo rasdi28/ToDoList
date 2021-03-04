@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BarangMasuk;
 use Illuminate\Http\Request;
 
 class dashboardController extends Controller
@@ -17,7 +18,10 @@ class dashboardController extends Controller
      */
     public function index()
     {
-        return view ('pages.admin.dashboard.index');
+        $count_barangmasuk = BarangMasuk::all()->count();
+        return view ('pages.admin.dashboard.index')->with([
+            'count_barangmasuk'=>$count_barangmasuk
+        ]);
     }
 
     /**

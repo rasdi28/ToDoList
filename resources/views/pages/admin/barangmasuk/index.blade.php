@@ -62,6 +62,7 @@
                  
                 </tbody>
             </table>
+            <a href="{{route('barangmasuk.pdf')}}" class="btn btn-info">Download File</a>
         </div>
     </div>
 </div>
