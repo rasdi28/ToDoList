@@ -23,6 +23,20 @@ Route::prefix('admin')->group(function(){
 
     });
 
+    Route::prefix('category')->group(function(){
+        Route::get('/','categoryController@index')->name('category.index');
+        Route::get('/create','categoryController@create')->name('category.create');
+        Route::post('/','categoryController@store')->name('category.store');
+        Route::get('/edit/{id}','categoryController@edit')->name('category.edit');
+        Route::put('/update/{id}','categoryController@update')->name('category.update');
+        Route::delete('delete/{id}','categoryController@destroy')->name('category.destroy');
+    });
+
+    Route::prefix('stock')->group(function(){
+        Route::get('/','stockController@index')->name('stock.index');
+        Route::get('/create','stockController@create')->name('stock.create');
+    });
+
 });
 
 Route::get('posts','PostController@index')->name('posts.index');

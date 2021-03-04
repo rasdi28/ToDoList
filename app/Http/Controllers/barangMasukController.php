@@ -35,9 +35,8 @@ class barangMasukController extends Controller
     public function print()
     {
       $items = BarangMasuk::all();
-      $pdf = PDF::loadview('pages.admin.barangmasuk.cetakkartu')=>setPaper('A4','potrait');
-      return $pdf->stream();
-
+      $pdf = PDF::loadview('pages.admin.barangmasuk.cetakPDF',$items);
+      return $pdf->download('cetakkartu.pdf');
     }
 
     /**

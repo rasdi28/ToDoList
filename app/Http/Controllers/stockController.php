@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 
-class categoryController extends Controller
+class stockController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class categoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('pages.admin.categories.index')->with([
-            'categories'=>$categories
+        $stocks = Stock::all();
+        return view ('pages.admin.stock.index')->with([
+            'stocks'=>$stocks
         ]);
     }
 
@@ -27,7 +27,7 @@ class categoryController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.categories.create');
+        //
     }
 
     /**
@@ -38,9 +38,7 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        $categories = $request->all();
-        Category::create($categories);
-        return redirect()->route('category.index');
+        //
     }
 
     /**
@@ -51,10 +49,7 @@ class categoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::findOrFail($id);
-        return view('pages.admin.categories.show')->with([
-            'category'=>$category
-        ]);
+        //
     }
 
     /**
@@ -65,10 +60,7 @@ class categoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findorFail($id);
-        return view('pages.admin.categories.edit')->with([
-            'category'=>$category
-        ]);
+        //
     }
 
     /**
@@ -80,10 +72,7 @@ class categoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $new_category = $request->all();
-        $category = Category::findOrFail($id);
-        $category ->update($new_category);
-        return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -94,8 +83,6 @@ class categoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
-        return redirect()->route('categories.index');
+        //
     }
 }

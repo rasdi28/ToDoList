@@ -5,8 +5,8 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3 ">
-        <h4 class="m-0 font-weight-bold text-primary">Data Category
-        <a class="btn btn-primary btn-sm float-right" href="{{route('category.create')}}">Tambah Data</a>
+        <h4 class="m-0 font-weight-bold text-primary">Data Stoc
+        <a class="btn btn-primary btn-sm float-right" href="{{route('stock.create')}}">Tambah Data</a>
         </h4>
     </div>
     <div class="card-body">
@@ -17,18 +17,21 @@
                         <th>No</th>
                         <th>Name</th>
                         <th>Action</th>
+                        <th>Quantity</th>
                        
 
                     </tr>
                 </thead>
                 
                 <tbody>
-                @forelse ($categories as $category)
+                @forelse ($stocks as $stock)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$category->name}}</td>
+                    <td>{{$stock->barangmasuk_id}}</td>
+                    <td>{{$stock->category_id}}</td>
+                    <td>{{$stock->qty}}</td>
         
-                    <td class="justify-content-center" style="border-radius:2; ml-2">
+                    {{-- <td class="justify-content-center" style="border-radius:2; ml-2">
                         <form action="{{route('barangmasuk.destroy',$category->id)}}" method="POST">
                             <a href="{{route('barangmasuk.show',$category->id)}}" class="btn btn-primary" >Show</a>
                             <a href="{{route('barangmasuk.edit',$category->id)}}" class="btn btn-secondary">Edit</a>
@@ -39,7 +42,7 @@
                             </button>
                         </form>
 
-                    </td>
+                    </td> --}}
 
 
                 </tr>
