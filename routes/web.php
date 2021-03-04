@@ -18,6 +18,23 @@ Route::prefix('admin')->group(function(){
         Route::get('/edit/{id}','barangMasukController@edit')->name('barangmasuk.edit');
         Route::put('/update/{id}','barangMasukController@update')->name('barangmasuk.update');
         Route::delete('delete/{id}','barangMasukController@destroy')->name('barangmasuk.destroy');
+        Route::get('/cetakkartu','barangMasukController@cetakkartu')->name('barangmasuk.cetakkartu');
+        Route::get('/print','barangMasukController@print')->name('barangmasuk.print');
+
+    });
+
+    Route::prefix('category')->group(function(){
+        Route::get('/','categoryController@index')->name('category.index');
+        Route::get('/create','categoryController@create')->name('category.create');
+        Route::post('/','categoryController@store')->name('category.store');
+        Route::get('/edit/{id}','categoryController@edit')->name('category.edit');
+        Route::put('/update/{id}','categoryController@update')->name('category.update');
+        Route::delete('delete/{id}','categoryController@destroy')->name('category.destroy');
+    });
+
+    Route::prefix('stock')->group(function(){
+        Route::get('/','stockController@index')->name('stock.index');
+        Route::get('/create','stockController@create')->name('stock.create');
     });
 
 });
