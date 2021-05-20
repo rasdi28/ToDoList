@@ -15,9 +15,10 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
+                        <th>Name Items</th>
                         <th>Description</th>
-                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Image</th>
                         <th>Action</th>
 
                     </tr>
@@ -29,6 +30,9 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->name}}</td>
                     <td>{{$item->description}}</td>
+                    <td>{{$item->Category->name}}</td>
+
+
                     <td>
                         <img src="{{asset($item->image)}}" alt="photo" class="ml-auto mr-auto mt-3" width="50px">
                     </td>
@@ -52,14 +56,12 @@
 
                 @empty
                    <tr>
-                       <td colspan="3" class="text-center">
+                       <td colspan="6" class="text-center">
                            <h3>Data Kosong</h3>
                        </td>
                    </tr>
                 @endforelse
                 
-                    
-                 
                 </tbody>
             </table>
             <a href="{{route('barangmasuk.pdf')}}" class="btn btn-info">Download File</a>

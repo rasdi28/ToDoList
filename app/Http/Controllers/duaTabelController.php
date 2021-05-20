@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BarangMasuk;
-use App\Models\Category;
-use App\Models\Stock;
-
+use App\Models\Kelas;
+use App\Models\Price;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-class stockController extends Controller
+
+class duaTabelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,15 +16,7 @@ class stockController extends Controller
      */
     public function index()
     {
-        $stock = DB::table('stocks')->get();
-       $barang = DB::table('barang_masuks')->where('name','mie')->value('description');
-       $kategori = DB::table('stocks')->find(2);
-
-       dd($kategori);
-
-    //    return view('pages.admin.stock.index')->with([
-    //        'stocks'=>$stocks
-    //    ]);
+        
         
     }
 
@@ -36,12 +27,10 @@ class stockController extends Controller
      */
     public function create()
     {
-        $barang = BarangMasuk::all();
-        return view('pages.admin.stock.create')->with([
-            'barang' => $barang
-        ]);
 
-      
+        return view('duatabel.create');
+
+
     }
 
     /**
@@ -52,7 +41,9 @@ class stockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nama = $request->all();
+        Siswa::create($nama);
+        
     }
 
     /**
@@ -63,7 +54,7 @@ class stockController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -99,4 +90,23 @@ class stockController extends Controller
     {
         //
     }
+
+    public function search()
+    {
+        $data = Siswa::all();
+        if($data->contains('name','rasdia'))
+        {
+            echo "nama rasdi Ada di tabel";
+        }else{
+            echo "tidak ada nama rasdi";
+        }
+    }
+
+    public function filter_data()
+    {
+        $data = Price::all();
+        $data["total"]= $data["price"];
+        echo $total["total"];
+    }
+
 }

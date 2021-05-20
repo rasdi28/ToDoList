@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BarangMasuk;
 use App\Models\Category;
-use App\Models\Stock;
-
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-class stockController extends Controller
+
+class categoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +14,10 @@ class stockController extends Controller
      */
     public function index()
     {
-        $stock = DB::table('stocks')->get();
-       $barang = DB::table('barang_masuks')->where('name','mie')->value('description');
-       $kategori = DB::table('stocks')->find(2);
-
-       dd($kategori);
-
-    //    return view('pages.admin.stock.index')->with([
-    //        'stocks'=>$stocks
-    //    ]);
-        
+        $categories = Category::all();
+        return view('pages.admin.categories.index')->with([
+            'categories'=>$categories
+        ]);
     }
 
     /**
@@ -36,12 +27,7 @@ class stockController extends Controller
      */
     public function create()
     {
-        $barang = BarangMasuk::all();
-        return view('pages.admin.stock.create')->with([
-            'barang' => $barang
-        ]);
-
-      
+        return view('pages.admin.categories.create');
     }
 
     /**
@@ -52,7 +38,9 @@ class stockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categories = $request->all();
+        Category::create($categories);
+        return redirect()->route('category.index');
     }
 
     /**
@@ -63,7 +51,10 @@ class stockController extends Controller
      */
     public function show($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('pages.admin.categories.show')->with([
+            'category'=>$category
+        ]);
     }
 
     /**
@@ -74,7 +65,10 @@ class stockController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findorFail($id);
+        return view('pages.admin.categories.edit')->with([
+            'category'=>$category
+        ]);
     }
 
     /**
@@ -86,7 +80,10 @@ class stockController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $new_category = $request->all();
+        $category = Category::findOrFail($id);
+        $category ->update($new_category);
+        return redirect()->route('category.index');
     }
 
     /**
@@ -97,6 +94,8 @@ class stockController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return redirect()->route('category.index');
     }
 }

@@ -36,8 +36,8 @@
                 <div id="collapseBarang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="{{route('barangmasuk.index')}}">Barang</a>
                         <a class="collapse-item" href="{{route('category.index')}}">Kategory</a>
+                        <a class="collapse-item" href="{{route('barangmasuk.index')}}">Barang</a>
                         <a class="collapse-item" href="{{route('stock.index')}}">Stock</a>
                     </div>
                 </div>

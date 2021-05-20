@@ -20,37 +20,21 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{route('barangmasuk.store')}}"  enctype="multipart/form-data">
+                        <form method="POST" action="{{route('duatabel.store')}}"  enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="name">Nama Barang</label>
+                            <label for="name">Nama</label>
                             <input type="text" class="form-control" id="name" placeholder="Enter your Barang" name="name" >
                         </div>
-
                         <div class="form-group">
-                            <label for="description">Deskripsi barang</label>
-                            <input type="text" class="form-control" id="description" id="description" placeholder="Enter Your Description" name="description">
+                            <label for="name">NPM</label>
+                            <input type="text" class="form-control" id="npm" placeholder="Enter your Barang" name="npm" >
                         </div>
+                        
+                        <button type="submit" class="btn btn-primary">Add</button>
 
-                        <div class="form-group">
-                            <label for="category_id" class="form-control-label">Category</label>
-                            <select name="category_id" id="" class="form-control" >
-                                @foreach ($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
 
-                         <div class="form-group">
-                            <div class="col-md-12 mb-2">
-                                <img id="preview-image-before-upload" src="https://www.riobeauty.co.uk/images/product_image_not_found.gif"
-                                alt="preview image" style="max-height: 250px;">
-                            </div>
-                                <label for="image">Insert Image Items</label>
-                                <input type="file" name="image" accept="image/*" class="form-control-file" id="image">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Add</button>
-
+                        
                         </form>
                         @if ($errors->any())
                         <div class="alert alert-danger my-4" role="alert">

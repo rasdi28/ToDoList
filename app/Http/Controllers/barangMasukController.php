@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BarangMasuk;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -20,10 +21,10 @@ class barangMasukController extends Controller
     public function index()
     {
         $items = BarangMasuk::all();
-       
-        return view('pages.admin.barangmasuk.index')->with([
-            'items'=>$items
-        ]);
+       return view('pages.admin.barangmasuk.index')->with([
+           'items'=>$items
+       ]);
+         
     }
 
     public function cetakkartu()
@@ -47,7 +48,10 @@ class barangMasukController extends Controller
      */
     public function create()
     {
-        return view ('pages.admin.barangmasuk.create');
+        $categories = Category::all();
+        return view ('pages.admin.barangmasuk.create')->with([
+            'categories'=>$categories
+        ]);
     }
 
     /**
@@ -58,6 +62,7 @@ class barangMasukController extends Controller
      */
     public function store(Request $request)
     {
+
         $barangmasuk = $request->all();
         $barangmasuk['image'] = 'storage/'.$request->file('image')->store(
             'assets/barangmasuk','public'

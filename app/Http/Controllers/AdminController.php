@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class AdminController extends Controller
 {
     public function __construct()
     {
@@ -13,10 +13,10 @@ class UserController extends Controller
 
     public function index()
     {
-        if(request()->user()->hasRole('user')) {
-            return view('user.index');
-        }else {
-            return view('/');
-        }
+        if (request()->user()->hasRole('admin')) {
+            return view('admin.index');
+        } else {
+            return redirect('/');
+        } 
     }
 }

@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    <div class="row text-center">
+        <h1>There is update from local</h1>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

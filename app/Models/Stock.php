@@ -12,12 +12,12 @@ class Stock extends Model
     ];
 
     public function barangmasuk(){
-        return $this->belongsTo(BarangMasuk::class);
+        return $this->hasMany(BarangMasuk::class);
     }
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->hasMany(Category::class);
     }
 
 

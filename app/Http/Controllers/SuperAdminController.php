@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class SuperAdminController extends Controller
 {
     public function __construct()
     {
@@ -13,9 +13,9 @@ class UserController extends Controller
 
     public function index()
     {
-        if(request()->user()->hasRole('user')) {
-            return view('user.index');
-        }else {
+        if (request()->user()->hasRole('superadmin')){
+            return view('pages.admin.dashboard.index');
+        } else {
             return view('/');
         }
     }

@@ -29,12 +29,11 @@
                     <td>{{$category->name}}</td>
         
                     <td class="justify-content-center" style="border-radius:2; ml-2">
-                        <form action="{{route('barangmasuk.destroy',$category->id)}}" method="POST">
-                            <a href="{{route('barangmasuk.show',$category->id)}}" class="btn btn-primary" >Show</a>
-                            <a href="{{route('barangmasuk.edit',$category->id)}}" class="btn btn-secondary">Edit</a>
+                        <form action="{{route('category.destroy',$category->id)}}" method="POST">
+                            <a href="{{route('category.edit',$category->id)}}" class="btn btn-secondary">Edit</a>
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger ml-2" style="border-radius:2" href="{{route('barangmasuk.destroy',$category->id)}}" onclick="return confirm('Yakin hapus data Barang ?')">
+                            <button class="btn btn-danger ml-2" style="border-radius:2" href="{{route('category.destroy',$category->id)}}" onclick="return confirm('Yakin hapus data Barang ?')">
                                 Delete
                             </button>
                         </form>

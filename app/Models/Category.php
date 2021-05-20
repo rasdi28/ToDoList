@@ -12,6 +12,10 @@ class Category extends Model
 
     public function stock()
     {
-        return $this->hasMany(Stock::class);
+        return $this->belongsTo(Stock::class);
+    }
+    public function barangmasuk()
+    {
+        return $this->hasMany(BarangMasuk::class);
     }
 }
