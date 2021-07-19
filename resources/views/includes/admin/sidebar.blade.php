@@ -6,7 +6,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">{{Auth()->user()->name}}</div>
             </a>
 
             <!-- Divider -->
@@ -67,13 +67,17 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>CRUD</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" href="{{route('pelanggan.index')}}">Pelanggan</a>
+                        <a class="collapse-item" href="{{route('tukangsayur.index')}}">Tukang Sayur</a>
+                        <a class="collapse-item" href="utilities-color.html">Item</a>
+                        <a class="collapse-item" href="utilities-color.html">Permintaan</a>
+                        <a class="collapse-item" href="utilities-color.html">Permintaan Items</a>
                        
                     </div>
                 </div>

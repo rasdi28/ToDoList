@@ -20,6 +20,20 @@ Route::prefix('admin')->group(function(){
         Route::delete('delete/{id}','barangMasukController@destroy')->name('barangmasuk.destroy');
     });
 
+    Route::prefix('pelanggan')->group(function(){
+        Route::get('/','Admin\PelangganController@index')->name('pelanggan.index');
+        Route::get('/create','Admin\PelangganController@create')->name('pelanggan.create');
+        Route::post('/','Admin\PelangganController@store')->name('pelanggan.store');
+        Route::get('/edit/{id}','Admin\PelangganController@edit')->name('pelanggan.edit');
+        Route::put('/update/{id}','Admin\PelangganController@update')->name('pelanggan.update');
+        Route::delete('delete/{id}','Admin\PelangganController@destroy')->name('pelanggan.destroy');
+        
+    });
+
+    Route::prefix('tukangsayur')->group(function(){
+        Route::get('/','Admin\TukangSayurController@index')->name('tukangsayur.index');
+    });
+
 });
 
 Route::get('posts','PostController@index')->name('posts.index');
