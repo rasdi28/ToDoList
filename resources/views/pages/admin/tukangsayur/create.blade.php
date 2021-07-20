@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group">
                             <label for="alamat">Alamat</label>
-                            <input type="text" class="form-control" id="alamat" placeholder="Nama" name="alamat" >
+                            <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat" >
                         </div>
 
                         <button type="submit" class="btn btn-primary">Add</button>

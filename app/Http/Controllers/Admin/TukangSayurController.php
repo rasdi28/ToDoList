@@ -65,7 +65,7 @@ class TukangSayurController extends Controller
     {
         $tukangsayur = Tukangsayur::findOrFail($id);
         return view('pages.admin.tukangsayur.edit')->with([
-            'tukangsayur'=>$$tukangsayur
+            'tukangsayur'=>$tukangsayur
         ]);
     }
 
@@ -78,7 +78,10 @@ class TukangSayurController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tukangsayurnew = $request->all();
+        $tukangsayur = Tukangsayur::findOrFail($id);
+        $tukangsayur -> update($tukangsayurnew);
+        return redirect()->route('tukangsayur.index');
     }
 
     /**
@@ -89,6 +92,8 @@ class TukangSayurController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tukangsayur = Tukangsayur::findOrFail($id);
+        $tukangsayur->delete();
+        return redirect()->route('tukangsayur.index');
     }
 }
