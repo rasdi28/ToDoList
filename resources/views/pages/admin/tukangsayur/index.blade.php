@@ -6,7 +6,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3 ">
         <h4 class="m-0 font-weight-bold text-primary"> Tukang Sayur
-        <a class="btn btn-primary btn-sm float-right" href="">Tambah Data</a>
+        <a class="btn btn-primary btn-sm float-right" href="{{route('tukangsayur.create')}}">Tambah Data</a>
         </h4>
     </div>
     <div class="card-body">
@@ -16,29 +16,24 @@
                     <tr>
                         <th>No</th>
                         <th>Name</th>
-                        <th>Description</th>
-                        <th>Name</th>
+                        <th>Alamat</th>
                         <th>Action</th>
 
                     </tr>
                 </thead>
                 
                 <tbody>
-                {{-- @forelse ($items as $item)
+                @forelse ($tukangsayurs as $tukangsayur)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$item->name}}</td>
-                    <td>{{$item->description}}</td>
-                    <td>
-                        <img src="{{asset($item->image)}}" alt="photo" class="ml-auto mr-auto mt-3" width="50px">
-                    </td>
+                    <td>{{$tukangsayur->nama}}</td>
+                    <td>{{$tukangsayur->alamat}}</td>
                     <td class="justify-content-center" style="border-radius:2; ml-2">
-                        <form action="{{route('barangmasuk.destroy',$item->id)}}" method="POST">
-                            <a href="{{route('barangmasuk.show',$item->id)}}" class="btn btn-primary" >Show</a>
-                            <a href="{{route('barangmasuk.edit',$item->id)}}" class="btn btn-secondary">Edit</a>
+                        <form action="{{route('tukangsayur.destroy',$tukangsayur->id)}}" method="POST">
+                            <a href="{{route('tukangsayur.edit',$tukangsayur->id)}}" class="btn btn-secondary">Edit</a>
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger ml-2" style="border-radius:2" href="{{route('barangmasuk.destroy',$item->id)}}" onclick="return confirm('Yakin hapus data Barang ?')">
+                            <button class="btn btn-danger ml-2" style="border-radius:2" href="{{route('tukangsayur.destroy',$tukangsayur->id)}}" onclick="return confirm('Yakin hapus data Barang ?')">
                                 Delete
                             </button>
                         </form>
@@ -59,7 +54,7 @@
                 @endforelse
                 
                     
-                  --}}
+                 
                 </tbody>
             </table>
         </div>

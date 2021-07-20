@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TukangSayurController;
 use App\Http\Controllers\barangMasukController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -29,10 +30,9 @@ Route::prefix('admin')->group(function(){
         Route::delete('delete/{id}','Admin\PelangganController@destroy')->name('pelanggan.destroy');
         
     });
+    //cara lebih simple menggunakan resource controller
 
-    Route::prefix('tukangsayur')->group(function(){
-        Route::get('/','Admin\TukangSayurController@index')->name('tukangsayur.index');
-    });
+    Route::resource('tukangsayur','Admin\TukangSayurController');
 
 });
 

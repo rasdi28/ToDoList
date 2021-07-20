@@ -87,13 +87,6 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            
-
-            
-
-           
-
-           
 
         </ul>
         <!-- End of Sidebar -->

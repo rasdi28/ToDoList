@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tukangsayur;
 use Illuminate\Http\Request;
 
 class TukangSayurController extends Controller
@@ -14,7 +15,10 @@ class TukangSayurController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.tukangsayur.index');
+        $tukangsayurs = Tukangsayur::all();
+        return view('pages.admin.tukangsayur.index')->with([
+            'tukangsayurs'=>$tukangsayurs
+        ]);
     }
 
     /**
@@ -24,7 +28,7 @@ class TukangSayurController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.tukangsayur.create');
     }
 
     /**
@@ -35,7 +39,9 @@ class TukangSayurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tukangsayur = $request->all();
+        Tukangsayur::create($tukangsayur);
+        return redirect()->route('tukangsayur.index');
     }
 
     /**
@@ -57,7 +63,10 @@ class TukangSayurController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tukangsayur = Tukangsayur::findOrFail($id);
+        return view('pages.admin.tukangsayur.edit')->with([
+            'tukangsayur'=>$$tukangsayur
+        ]);
     }
 
     /**
