@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -40,7 +41,7 @@ class categoryController extends Controller
     {
         $categories = $request->all();
         Category::create($categories);
-        return redirect()->route('categories.index');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -54,7 +55,7 @@ class categoryController extends Controller
         $category = Category::findOrFail($id);
         return view('pages.admin.categories.show')->with([
             'category'=>$category
-        ])
+        ]);
     }
 
     /**
@@ -83,7 +84,7 @@ class categoryController extends Controller
         $new_category = $request->all();
         $category = Category::findOrFail($id);
         $category ->update($new_category);
-        return redirect()->route('categories.index');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -96,6 +97,6 @@ class categoryController extends Controller
     {
         $category = Category::findOrFail($id);
         $category->delete();
-        return redirect()->route('categories.index');
+        return redirect()->route('category.index');
     }
 }

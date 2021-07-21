@@ -17,7 +17,8 @@
                         <th>No</th>
                         <th>Name</th>
                         <th>Description</th>
-                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Gambar</th>
                         <th>Action</th>
 
                     </tr>
@@ -28,6 +29,7 @@
                 <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$item->name}}</td>
+                    <td>{{$item->description}}</td>
                     <td>{{$item->description}}</td>
                     <td>
                         <img src="{{asset($item->image)}}" alt="photo" class="ml-auto mr-auto mt-3" width="50px">

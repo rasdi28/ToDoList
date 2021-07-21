@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\TukangSayurController;
-use App\Http\Controllers\barangMasukController;
+use App\Http\Controllers\Admin\barangMasukController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+
+Route::get('/',function(){
+    return view('pages.frontend.index');
+});
 
 
 Route::prefix('admin')->group(function(){
@@ -12,13 +16,13 @@ Route::prefix('admin')->group(function(){
         Route::get('/','dashboardController@index')->name('dashboard.index');
     });
     Route::prefix('barangmasuk')->group(function(){
-        Route::get('/','barangMasukController@index')->name('barangmasuk.index');
-        Route::get('/create','barangMasukController@create')->name('barangmasuk.create');
-        Route::post('/','barangMasukController@store')->name('barangmasuk.store');
-        Route::get('/show/{id}','barangMasukController@show')->name('barangmasuk.show');
-        Route::get('/edit/{id}','barangMasukController@edit')->name('barangmasuk.edit');
-        Route::put('/update/{id}','barangMasukController@update')->name('barangmasuk.update');
-        Route::delete('delete/{id}','barangMasukController@destroy')->name('barangmasuk.destroy');
+        Route::get('/','Admin\barangMasukController@index')->name('barangmasuk.index');
+        Route::get('/create','Admin\barangMasukController@create')->name('barangmasuk.create');
+        Route::post('/','Admin\barangMasukController@store')->name('barangmasuk.store');
+        Route::get('/show/{id}','Admin\barangMasukController@show')->name('barangmasuk.show');
+        Route::get('/edit/{id}','Admin\barangMasukController@edit')->name('barangmasuk.edit');
+        Route::put('/update/{id}','Admin\barangMasukController@update')->name('barangmasuk.update');
+        Route::delete('delete/{id}','Admin\barangMasukController@destroy')->name('barangmasuk.destroy');
     });
 
     Route::prefix('pelanggan')->group(function(){
@@ -31,7 +35,7 @@ Route::prefix('admin')->group(function(){
         
     });
     //cara lebih simple menggunakan resource controller
-
+    Route::resource('category','Admin\CategoryController');
     Route::resource('tukangsayur','Admin\TukangSayurController');
 
 });
@@ -54,12 +58,6 @@ Route::prefix('posts')->middleware('auth')->group(function(){
 Route::get('posts/{post:slug}','PostController@show')->name('posts.show');
 
 
-Route::view('contact','contact');
-Route::view('about','about');
-ROute::view('login','login');
-Route::get('/belajar/{page}', function($page){
-    return "hello , ini adalah halaman belajar route".$page;
-});
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+
