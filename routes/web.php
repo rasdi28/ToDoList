@@ -37,6 +37,8 @@ Route::prefix('admin')->group(function(){
     //cara lebih simple menggunakan resource controller
     Route::resource('category','Admin\CategoryController');
     Route::resource('tukangsayur','Admin\TukangSayurController');
+    ROute::resource('item','Admin\ItemController');
+    Route::resource('permintaan','Admin\PermintaanController');
 
 });
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddNameFieldToCategoriesTable extends Migration
+class AddAlamatToPermintaansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddNameFieldToCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table ->string('name');
+        Schema::table('permintaans', function (Blueprint $table) {
+            $table->string('alamat');
         });
     }
 
@@ -25,8 +25,8 @@ class AddNameFieldToCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropColumn('name');
+        Schema::table('permintaans', function (Blueprint $table) {
+            $table->dropColumn('alamat');
         });
     }
 }

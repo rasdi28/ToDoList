@@ -76,8 +76,8 @@
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="{{route('pelanggan.index')}}">Pelanggan</a>
                         <a class="collapse-item" href="{{route('tukangsayur.index')}}">Tukang Sayur</a>
-                        <a class="collapse-item" href="utilities-color.html">Item</a>
-                        <a class="collapse-item" href="utilities-color.html">Permintaan</a>
+                        <a class="collapse-item" href="{{route('item.index')}}">Item</a>
+                        <a class="collapse-item" href="{{route('permintaan.index')}}">Permintaan</a>
                         <a class="collapse-item" href="utilities-color.html">Permintaan Items</a>
                        
                     </div>

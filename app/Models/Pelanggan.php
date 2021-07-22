@@ -10,4 +10,9 @@ class Pelanggan extends Model
     protected $fillable = [
         'nama'
     ];
+
+    public function permintaan()
+    {
+        return $this->hasMany(Permintaan::class,'permintaan_id');
+    }
 }
