@@ -20,5 +20,10 @@ class PermintaanItem extends Model
         return $this->belongsTo(Permintaan::class,'permintaan_id');
     }
 
+    public function pelanggan()
+    {
+        return $this->belongsTo(Pelanggan::class,'pelanggan_id');
+    }
+
 
 }

@@ -19,4 +19,6 @@ class Permintaan extends Model
     {
         return $this->belongsTo(Tukangsayur::class,'tukangsayur_id');
     }
+
+    
 }

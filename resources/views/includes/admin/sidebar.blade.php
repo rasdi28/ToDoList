@@ -78,7 +78,7 @@
                         <a class="collapse-item" href="{{route('tukangsayur.index')}}">Tukang Sayur</a>
                         <a class="collapse-item" href="{{route('item.index')}}">Item</a>
                         <a class="collapse-item" href="{{route('permintaan.index')}}">Permintaan</a>
-                        <a class="collapse-item" href="utilities-color.html">Permintaan Items</a>
+                        <a class="collapse-item" href="{{route('permintaanitem.index')}}">Permintaan Items</a>
                        
                     </div>
                 </div>

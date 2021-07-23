@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Permintaan;
 use App\Models\PermintaanItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PermintaanItemController extends Controller
 {
@@ -15,10 +17,11 @@ class PermintaanItemController extends Controller
      */
     public function index()
     {
-        $permintaanitems = PermintaanItem::all();
-        return view('pages.admin.permintaanitem.index')->with([
-            'permintaanitems'=>$permintaanitems
-        ]);
+        $permintaanitems =DB::table('permintaan_items')->get();
+        echo $permintaanitems;
+        // return view('pages.admin.permintaanitem.index')->with([
+        //     'permintaanitems'=>$permintaanitems
+        // ]);
     }
 
     /**

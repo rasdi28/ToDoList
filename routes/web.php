@@ -39,6 +39,7 @@ Route::prefix('admin')->group(function(){
     Route::resource('tukangsayur','Admin\TukangSayurController');
     ROute::resource('item','Admin\ItemController');
     Route::resource('permintaan','Admin\PermintaanController');
+    Route::resource('permintaanitem','Admin\PermintaanItemController');
 
 });
 
