@@ -21,4 +21,6 @@ class Permintaan extends Model
     }
 
     
+
+    
 }

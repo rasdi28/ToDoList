@@ -40,6 +40,8 @@ Route::prefix('admin')->group(function(){
     ROute::resource('item','Admin\ItemController');
     Route::resource('permintaan','Admin\PermintaanController');
     Route::resource('permintaanitem','Admin\PermintaanItemController');
+    Route::resource('stock','Admin\StockController');
+    Route::get('/inventory','Admin\StockController@inventory')->name('stock.inventory');
 
 });
 

@@ -5,8 +5,7 @@
 
 <div class="card shadow mb-4">
     <div class="card-header py-3 ">
-        <h4 class="m-0 font-weight-bold text-primary">Data Barang Masuk
-        <a class="btn btn-primary btn-sm float-right" href="{{route('barangmasuk.create')}}">Tambah Data</a>
+        <h4 class="m-0 font-weight-bold text-primary">Data Semua Stock
         </h4>
     </div>
     <div class="card-body">
@@ -15,33 +14,26 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Category</th>
-                        <th>Gambar</th>
+                        <th>Nama Barang</th>
+                        <th>Stock</th>
                         <th>Action</th>
 
                     </tr>
                 </thead>
                 
                 <tbody>
-                @forelse ($items as $item)
+                {{-- @forelse ($stocks as $stock)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$item->name}}</td>
-                    <td>{{$item->description}}</td>
-                    <td>{{$item->categories->name}}</td>
-
-                    <td>
-                        <img src="{{asset($item->image)}}" alt="photo" class="ml-auto mr-auto mt-3" width="50px">
-                    </td>
+                    <td>{{$stock->barangmasuk->name}}</td>
+                    <td>{{$stock->stok}}</td>
                     <td class="justify-content-center" style="border-radius:2; ml-2">
-                        <form action="{{route('barangmasuk.destroy',$item->id)}}" method="POST">
-                            <a href="{{route('barangmasuk.show',$item->id)}}" class="btn btn-primary" >Show</a>
-                            <a href="{{route('barangmasuk.edit',$item->id)}}" class="btn btn-secondary">Edit</a>
+                        <form action="{{route('stock.destroy', $stock->id)}}" method="POST">
+                            
+                            <a href="{{route('stock.edit',$stock->id)}}" class="btn btn-secondary">Edit</a>
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger ml-2" style="border-radius:2" href="{{route('barangmasuk.destroy',$item->id)}}" onclick="return confirm('Yakin hapus data Barang ?')">
+                            <button class="btn btn-danger ml-2" style="border-radius:2" href="{{route('stock.destroy',$stock->id)}}" onclick="return confirm('Yakin hapus data Barang ?')">
                                 Delete
                             </button>
                         </form>
@@ -60,7 +52,7 @@
                        </td>
                    </tr>
                 @endforelse
-                
+                 --}}
                     
                  
                 </tbody>

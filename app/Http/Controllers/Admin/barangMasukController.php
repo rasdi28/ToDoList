@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Model\Category;
 use App\Models\BarangMasuk;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class barangMasukController extends Controller
      */
     public function index()
     {
-        $items = BarangMasuk::all();
+        $items = BarangMasuk::with(['categories'])->get();
         return view('pages.admin.barangmasuk.index')->with([
             'items'=>$items
         ]);
@@ -32,7 +33,10 @@ class barangMasukController extends Controller
      */
     public function create()
     {
-        return view ('pages.admin.barangmasuk.create');
+        $categories = Category::all();
+        return view ('pages.admin.barangmasuk.create')->with([
+            'categories'=>$categories
+        ]);
     }
 
     /**

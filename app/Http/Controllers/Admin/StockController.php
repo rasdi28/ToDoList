@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Permintaan;
-use App\Models\PermintaanItem;
+use App\Models\BarangMasuk;
+use App\Models\Stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PermintaanItemController extends Controller
+class StockController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,10 @@ class PermintaanItemController extends Controller
      */
     public function index()
     {
-    
-        $permintaanitems =PermintaanItem::with(['permintaan','item'])->get();
-        return view('pages.admin.permintaanitem.index')->with([
-            'permintaanitems'=>$permintaanitems
+        $stocks = Stock::with(['barangmasuk'])->get();
+        // echo $stocks;
+        return view('pages.admin.stok.index')->with([
+            'stocks'=>$stocks
         ]);
     }
 
@@ -31,7 +31,10 @@ class PermintaanItemController extends Controller
      */
     public function create()
     {
-        //
+        $barangs = BarangMasuk::all();
+        return view('pages.admin.stok.create')->with([
+            'barangs'=>$barangs
+        ]);
     }
 
     /**
@@ -42,7 +45,9 @@ class PermintaanItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $stock = $request->all();
+        Stock::create($stock);
+        return redirect()->route('stock.index');
     }
 
     /**
@@ -88,5 +93,19 @@ class PermintaanItemController extends Controller
     public function destroy($id)
     {
         //
+    }
+    //data jumlah stok
+    public function inventory()
+    {
+
+        $inventory = DB::table('stocks')
+                    ->where('barangmasuk_id','barangmasuk_id')
+                    ->get();
+        // $inventory = DB::table('stocks')
+        //             ->rightJoin('barang_masuks','stocks.barangmasuk_id','=','barang_masuks.id')
+        //             ->get(); 
+        return response()->json($inventory);
+        // return view('pages.admin.stok.inventory');
+
     }
 }

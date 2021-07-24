@@ -33,19 +33,21 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBarang"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Barang Masuk</span>
+                    <span>inventory</span>
                 </a>
                 <div id="collapseBarang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="{{route('category.index')}}">Kategori</a>
                         <a class="collapse-item" href="{{route('barangmasuk.index')}}">Barang</a>
+                        <a class="collapse-item" href="{{route('stock.index')}}">Stock</a>
+                        <a class="collapse-item" href="{{route('stock.inventory')}}">Data Stock</a>
 
                     </div>
                 </div>
             </li>
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInventory"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -58,7 +60,7 @@
                         <a class="collapse-item" href="buttons.html">Kategori</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
 
 

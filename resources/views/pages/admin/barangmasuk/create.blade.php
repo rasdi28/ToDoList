@@ -26,6 +26,15 @@
                             <label for="name">Nama Barang</label>
                             <input type="text" class="form-control" id="name" placeholder="Enter your Barang" name="name" >
                         </div>
+                        <div class="form-group">
+                            <label for="category_id">Category</label>
+                            <select name="category_id" id="category_id" class="form-control">
+                                <option value="">pilih</option>
+                                @foreach ($categories as $categories)
+                                    <option value="{{$categories->id}}">{{$categories->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                         <div class="form-group">
                             <label for="description">Deskripsi barang</label>

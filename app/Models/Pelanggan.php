@@ -15,4 +15,6 @@ class Pelanggan extends Model
     {
         return $this->hasMany(Permintaan::class,'permintaan_id');
     }
+
+   
 }
