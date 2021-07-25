@@ -97,14 +97,26 @@ class StockController extends Controller
     //data jumlah stok
     public function inventory()
     {
-
-        $inventory = DB::table('stocks')
-                    ->where('barangmasuk_id','barangmasuk_id')
+        $barang = DB::table('stocks')
+                    ->select('barangmasuk_id')
+                    ->distinct()
                     ->get();
         // $inventory = DB::table('stocks')
-        //             ->rightJoin('barang_masuks','stocks.barangmasuk_id','=','barang_masuks.id')
-        //             ->get(); 
-        return response()->json($inventory);
+        //             ->where($barang)
+        //             ->sum('stocks.stok');
+
+        // $inventory = DB::table('stocks')
+        //             ->join('barang_masuks','stocks.barangmasuk_id','=','barang_masuks.id')
+        //             ->where('barang_masuks.name','=','')
+        //             ->sum('stocks.stok');
+
+        // // $inventory = DB::table('stocks')
+        // //             ->where('barangmasuk_id','barangmasuk_id')
+        // //             ->get();
+        // // $inventory = DB::table('stocks')
+        // //             ->rightJoin('barang_masuks','stocks.barangmasuk_id','=','barang_masuks.id')
+        // //             ->get(); 
+        return response()->json($barang);
         // return view('pages.admin.stok.inventory');
 
     }
