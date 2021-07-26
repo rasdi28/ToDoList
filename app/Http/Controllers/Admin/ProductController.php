@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -30,9 +31,11 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $suppliers = Supplier::all();
         $code = rand();
         return view('pages.admin.product.create')->with([
-            'code'=>$code
+            'code'=>$code,
+            'suppliers'=>$suppliers
         ]);
     }
 
@@ -44,7 +47,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $code = rand();
+        $product = $request->all();
+        $product['code']=$code;
+        Product::create($product);
+        return redirect()->route('product.index');
     }
 
     /**
@@ -66,7 +73,13 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $supplier = Supplier::all();
+       $product = Product::findOrFail($id);
+       return view('pages.admin.product.edit')->with([
+           'supplier'=>$supplier,
+           'product'=>$product
+       ]);
+
     }
 
     /**
@@ -78,7 +91,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product_new = $request->all();
+        $product = Product::findOrFail($id);
+        $product->update($product_new);
+        return redirect()->route('product.index');
     }
 
     /**
@@ -89,6 +105,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return redirect()->route('product.index');
     }
 }

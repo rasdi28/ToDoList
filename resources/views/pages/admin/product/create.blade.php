@@ -23,17 +23,26 @@
                         <form method="POST" action="{{route('product.store')}}"  enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="code">Name Product</label>
-                            <input type="text" class="form-control" id="code" id="code" placeholder="Insert Product" value="{{$code}}" name="code">
-                        </div>
-                        {{-- <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" id="address" placeholder="Insert Address" name="address">
+                            <label for="supplier_id">Name Supplier</label>
+                            <select name="supplier_id" id="supplier_id" class="form-control">
+                                <option value="">pilih</option>
+                                @foreach ($suppliers as $supplier)
+                                    <option value="{{$supplier->id}}">{{$supplier->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label for="no_telp">Number Telephon</label>
-                            <input type="number" class="form-control" id="no_telp" id="no_telp" placeholder="Insert Number Telephon" name="no_telp">
-                        </div> --}}
+                            <label for="name">Name Item</label>
+                            <input type="text" class="form-control" id="name" id="name" placeholder="Insert Item" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="stock">Stock</label>
+                            <input type="number" class="form-control" id="stock" id="stock" placeholder="Insert Stock" name="stock">
+                        </div>
+                        <div class="form-group">
+                            <label for="stock_minimum">Stock Minimum</label>
+                            <input type="number" class="form-control" id="stock_minimum" id="stock_minimum" placeholder="Insert Stock Minimum" name="stock_minimum">
+                        </div>
 
                             <button type="submit" class="btn btn-primary">Add</button>
 
