@@ -17,9 +17,10 @@
                         <th>No</th>
                         <th>Name Supplier</th>
                         <th>Name Item</th>
-                        <th>Code</th>
                         <th>Stock</th>
                         <th>Stock Minimum</th>
+                        <th>Selling Price</th>
+                        <th>Purchase Price</th>
                         <th>Action</th>
 
                     </tr>
@@ -31,13 +32,15 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$product->supplier->name}}</td>
                     <td>{{$product->name}}</td>
-                    <td>{{$product->code}}</td>
-                    <td>{{$product->code}}</td>
+                    <td>{{$product->stock}}</td>
                     <td>{{$product->stock_minimum}}</td>
+                    <td>Rp. {{$product->price}}</td>
+                    <td>Rp. {{$product->purchase_price}}</td>
                     <td class="justify-content-center" style="border-radius:2; ml-2">
                         <form action="{{route('product.destroy', $product->id)}}" method="POST">
                             
                             <a href="{{route('product.edit',$product->id)}}" class="btn btn-secondary">Edit</a>
+                            <a href="{{route('product.show',$product->id)}}" class="btn btn-primary">Show</a>
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger ml-2" style="border-radius:2" href="{{route('product.destroy',$product->id)}}" onclick="return confirm('Yakin hapus data Barang ?')">

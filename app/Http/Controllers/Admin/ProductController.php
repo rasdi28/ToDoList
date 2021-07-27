@@ -50,6 +50,7 @@ class ProductController extends Controller
         $code = rand();
         $product = $request->all();
         $product['code']=$code;
+        $product['stock']= 0;
         Product::create($product);
         return redirect()->route('product.index');
     }
@@ -62,7 +63,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $title = "Detail Product";
+        $product = Product::with(['supplier'])->findOrFail($id);
+        return view('pages.admin.product.show',compact('title','product'));
     }
 
     /**

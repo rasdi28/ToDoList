@@ -36,12 +36,16 @@
                             <input type="text" class="form-control" id="name" id="name" placeholder="Insert Item" name="name">
                         </div>
                         <div class="form-group">
-                            <label for="stock">Stock</label>
-                            <input type="number" class="form-control" id="stock" id="stock" placeholder="Insert Stock" name="stock">
-                        </div>
-                        <div class="form-group">
                             <label for="stock_minimum">Stock Minimum</label>
                             <input type="number" class="form-control" id="stock_minimum" id="stock_minimum" placeholder="Insert Stock Minimum" name="stock_minimum">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Selling Price</label>
+                            <input type="number" class="form-control" id="price" id="price" placeholder="Price" name="price">
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase_price">Purchase Price</label>
+                            <input type="number" class="form-control" id="purchase_price" id="purchase_price" placeholder="Price" name="purchase_price">
                         </div>
 
                             <button type="submit" class="btn btn-primary">Add</button>

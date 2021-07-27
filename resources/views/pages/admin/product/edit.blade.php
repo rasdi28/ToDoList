@@ -41,13 +41,18 @@
                             <label for="code">Code</label>
                             <input type="text" class="form-control" id="code" placeholder="code" name="code" value="{{old('code') ? old('code') : $product->code}}" readonly >
                         </div>
-                        <div class="form-group">
-                            <label for="stock">Stock</label>
-                            <input type="text" class="form-control" id="stock" name="stock" value="{{old('stock') ? old('stock') : $product->stock}} " >
-                        </div> 
+                
                         <div class="form-group">
                             <label for="stock_minimum">Stock Minimum</label>
                             <input type="text" class="form-control" id="stock_minimum" name="stock_minimum" value="{{old('stock_minimum') ? old('stock_minimum') : $product->stock_minimum}} " >
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Harga Jual</label>
+                            <input type="text" class="form-control" id="price" name="price" value="{{old('price') ? old('price') : $product->price}} " >
+                        </div>
+                        <div class="form-group">
+                            <label for="purchase_price">Harga Beli</label>
+                            <input type="text" class="form-control" id="purchase_price" name="purchase_price" value="{{old('purchase_price') ? old('purchase_price') : $product->purchase_price}} " >
                         </div> 
         
                         <button type="submit" class="btn btn-primary">Add</button>
