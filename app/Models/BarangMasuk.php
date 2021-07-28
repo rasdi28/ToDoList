@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BarangMasuk extends Model
 {
     protected $fillable = [
-        'name','description','image','category_id'
+        'name','description','image','category_id','stock'
     ];
 
     public function categories()

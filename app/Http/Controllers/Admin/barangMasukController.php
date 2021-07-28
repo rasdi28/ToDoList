@@ -48,6 +48,7 @@ class barangMasukController extends Controller
     public function store(Request $request)
     {
         $barangmasuk = $request->all();
+        $barangmasuk['stock'] = 0;
         $barangmasuk['image'] = 'storage/'.$request->file('image')->store(
             'assets/barangmasuk','public'
         );

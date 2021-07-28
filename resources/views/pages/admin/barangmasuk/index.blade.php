@@ -18,7 +18,9 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Category</th>
+                        <th>Stock</th>
                         <th>Gambar</th>
+
                         <th>Action</th>
 
                     </tr>
@@ -31,6 +33,7 @@
                     <td>{{$item->name}}</td>
                     <td>{{$item->description}}</td>
                     <td>{{$item->categories->name}}</td>
+                    <td>{{$item->stock}}</td>
 
                     <td>
                         <img src="{{asset($item->image)}}" alt="photo" class="ml-auto mr-auto mt-3" width="50px">

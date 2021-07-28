@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\BarangMasuk;
-use App\Models\Stock;
+use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class StockController extends Controller
+class PurchaseOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +15,7 @@ class StockController extends Controller
      */
     public function index()
     {
-        $stocks = Stock::with(['barangmasuk'])->get();
-        // echo $stocks;
-        return view('pages.admin.stok.index')->with([
-            'stocks'=>$stocks
-        ]);
+        //
     }
 
     /**
@@ -31,10 +25,8 @@ class StockController extends Controller
      */
     public function create()
     {
-        $barangs = BarangMasuk::all();
-        return view('pages.admin.stok.create')->with([
-            'barangs'=>$barangs
-        ]);
+        $products = Product::all();
+        return view('pages.admin.po.create',compact(['products']));
     }
 
     /**
@@ -45,19 +37,7 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $stock = $request->all();
-        $stock1['stock'] = $request->stok;
-        //create stok
-        Stock::create($stock);
-        $id = $stock['barangmasuk_id'];
-        //find tabel barang masuk
-        $barangmasuk = BarangMasuk::findOrFail($id);
-        //proses penjumlahan stok di barang masuk
-        $total['stock'] = $barangmasuk['stock'] + $stock1['stock'];
-        //update stok dibarang masuk
-        $barangmasuk->update($total);
-        return redirect()->route('stock.index');
+        //
     }
 
     /**
@@ -103,15 +83,5 @@ class StockController extends Controller
     public function destroy($id)
     {
         //
-    }
-    //data jumlah stok
-    public function inventory()
-    {
-        $id = 4;
-        $total = Stock::where('barangmasuk_id',$id)->get();
-        
-        return response()->json($total);
-
-
     }
 }

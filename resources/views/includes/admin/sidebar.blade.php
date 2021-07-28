@@ -97,6 +97,7 @@
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="{{route('supplier.index')}}">supplier</a>
                         <a class="collapse-item" href="{{route('product.index')}}">Product</a>
+                        <a class="collapse-item" href="{{route('po.create')}}">Purchase Order</a>
 
                     </div>
                 </div>
