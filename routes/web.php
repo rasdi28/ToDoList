@@ -44,6 +44,7 @@ Route::prefix('admin')->group(function(){
     Route::resource('product','Admin\ProductController');
     Route::resource('stock','Admin\StockController');
     Route::resource('po','Admin\PurchaseOrderController');
+    Route::resource('orderitem','Admin\OrderItemController');
     Route::get('/inventory','Admin\StockController@inventory')->name('stock.inventory');
     
 

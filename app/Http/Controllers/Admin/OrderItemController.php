@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Po;
+use App\Models\Orderitem;
 use App\Models\Product;
-use App\Models\Stock;
 use Illuminate\Http\Request;
 
-class PurchaseOrderController extends Controller
+class OrderItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -28,7 +27,7 @@ class PurchaseOrderController extends Controller
     public function create()
     {
         $products = Product::all();
-        return view('pages.admin.po.create',compact(['products']));
+        return view('pages.admin.orderitem.create',compact(['products']));
     }
 
     /**
@@ -39,14 +38,12 @@ class PurchaseOrderController extends Controller
      */
     public function store(Request $request)
     {
-        $stock = $request->all();
-        Po::create($stock);
-        $produk = Product::findOrFail($stock['product_id']);
-        $produk['stock'] = $produk['stock']+$stock['po']; 
-        $produk->update();
+        $orderitem = $request->all();
+        Orderitem::create($orderitem);
+        $stok = Product::findOrFail($orderitem['product_id']);
+        $stok['stock'] = $stok['stock'] - $orderitem['order'];
+        $stok->update();
         return redirect()->route('product.index');
-
-
     }
 
     /**

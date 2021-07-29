@@ -15,12 +15,12 @@
                     <div class="card-header py-3">
                         <div class="row">
                             <h6 class="m-0 font-weight-bold text-primary">
-                                Create Purchase Order
+                                Create Order Item
                             </h6>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{route('po.store')}}"  enctype="multipart/form-data">
+                        <form method="POST" action="{{route('orderitem.store')}}"  enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="product_id">Product</label>
@@ -35,8 +35,8 @@
                        
 
                         <div class="form-group">
-                            <label for="po">Stock</label>
-                            <input type="number" class="form-control" id="po" placeholder="po" name="po" >
+                            <label for="order">Stock</label>
+                            <input type="number" class="form-control" id="order" placeholder="order" name="order" >
                         </div>
 
                         <button type="submit" class="btn btn-primary">Add</button>

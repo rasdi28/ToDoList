@@ -98,6 +98,7 @@
                         <a class="collapse-item" href="{{route('supplier.index')}}">supplier</a>
                         <a class="collapse-item" href="{{route('product.index')}}">Product</a>
                         <a class="collapse-item" href="{{route('po.create')}}">Purchase Order</a>
+                        <a class="collapse-item" href="{{route('orderitem.create')}}">Order Item</a>
 
                     </div>
                 </div>
