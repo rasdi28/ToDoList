@@ -37,6 +37,9 @@ Route::prefix('admin')->group(function(){
         Route::get('/create','stockController@create')->name('stock.create');
     });
 
+
+    
+
 });
 
 Route::get('posts','PostController@index')->name('posts.index');
@@ -66,3 +69,5 @@ Route::get('/belajar/{page}', function($page){
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('profile','profilesController@list');

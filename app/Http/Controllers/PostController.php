@@ -91,19 +91,15 @@ class PostController extends Controller
         return request()->validate([
             'title'=>'required|min:3',
             'body'=>'required',
-            
-           
-
-    //     ]);
-    // }
+         ]);
+    }
 
 
-    public function destroy(Post $post)
-    {
+    public function destroy ($id)
+    {   $post = Post::findOrFail($id);
         $post->delete();
         session()->flash("success", "The Pos Was Delete");
         return redirect('posts');
-
     }
 
 

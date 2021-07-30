@@ -10,5 +10,10 @@ class BarangMasuk extends Model
         'name','description','image'
     ];
 
+    public function category()
+    {
+        $this->belongsTo(Category::class);
+    }
+
     
 }

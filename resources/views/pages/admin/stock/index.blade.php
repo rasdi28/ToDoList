@@ -18,8 +18,6 @@
                         <th>Name</th>
                         <th>Action</th>
                         <th>Quantity</th>
-                       
-
                     </tr>
                 </thead>
                 
